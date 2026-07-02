@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radhika Yadav | Portfolio</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* ===== GLOBAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8faff;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.85) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: #cbd5e1 !important;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            margin: 0 4px;
+        }
+        .nav-link:hover {
+            color: #ffffff !important;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 2.5px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 50%, #0ea5e9 100%);
+            color: #fff;
+            padding: 140px 0 120px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+            animation: pulseGlow 10s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0.8;
+            }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-avatar:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 30px 80px rgba(14, 165, 233, 0.4);
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .lead {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #bfdbfe;
+        }
+
+        .hero .btn-hero {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: none;
+            color: #0f172a;
+            font-weight: 700;
+            padding: 14px 40px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .hero .btn-hero:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(251, 191, 36, 0.5);
+            background: linear-gradient(135deg, #fcd34d, #f59e0b);
+        }
+
+        .hero .btn-outline-hero {
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            border-radius: 50px;
+            padding: 14px 40px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero .btn-outline-hero:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            font-weight: 800;
+            color: #0f172a;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #a78bfa);
+            border-radius: 4px;
+        }
+
+        /* ===== CARDS ===== */
+        .skill-card,
+        .project-card,
+        .education-card,
+        .guide-card {
+            border: none;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .skill-card:hover,
+        .project-card:hover,
+        .education-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .skill-card .progress {
+            height: 10px;
+            border-radius: 20px;
+            background: #e2e8f0;
+        }
+        .skill-card .progress-bar {
+            border-radius: 20px;
+            background: linear-gradient(90deg, #3b82f6, #a78bfa);
+            transition: width 1.8s ease;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        /* ===== RESUME BOX ===== */
+        .resume-box {
+            background: linear-gradient(145deg, #1e3a8a, #0ea5e9);
+            border-radius: 30px;
+            padding: 50px 40px;
+            color: #fff;
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.3);
+            transition: transform 0.4s ease;
+        }
+        .resume-box:hover {
+            transform: scale(1.01);
+        }
+
+        /* ===== GUIDE ===== */
+        .guide-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            transition: transform 0.4s ease;
+        }
+        .guide-img:hover {
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-card {
+            border-radius: 24px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-control {
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            padding: 14px 18px;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+        .form-control:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            background: #fff;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #fff;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+        .btn-submit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.4);
+            color: #fff;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .floating-btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 999;
+            border: none;
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.12) translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+        }
+        .btn-whatsapp:hover {
+            color: #fff;
+            background: #1ebe5c;
+        }
+
+        .btn-top {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #fff;
+        }
+        .btn-top:hover {
+            color: #fff;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            .hero-avatar {
+                width: 150px;
+                height: 150px;
+            }
+            .resume-box {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+                min-height: auto;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold" href="#home">Radhika Yadav</a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#resume">Resume</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#certificates">Certificates</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#guide">Project Guide</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="container text-center">
+            <img src="image/radhu.jpeg" alt="Radhika Yadav" class="hero-avatar mb-4" data-aos="zoom-in" data-aos-duration="1200" />
+            <h1 data-aos="fade-up" data-aos-delay="200">Radhika Yadav</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="400">Diploma Computer Engineering Student</p>
+            <p data-aos="fade-up" data-aos-delay="600" style="color:#bfdbfe; max-width:500px; margin:0 auto 30px;">
+                Passionate about building beautiful & functional web experiences.
+            </p>
+            <div data-aos="fade-up" data-aos-delay="800">
+                <a href="#projects" class="btn btn-hero me-3"><i class="fas fa-rocket me-2"></i>View Projects</a>
+                <a href="#contact" class="btn btn-outline-hero"><i class="fas fa-envelope me-2"></i>Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-duration="1200">
+                    <img src="image/r.jpeg" alt="About" width="280" height="280" class="rounded-circle shadow-lg" style="object-fit:cover; border:5px solid #fff; box-shadow:0 20px 60px rgba(0,0,0,0.12);" />
+                </div>
+                <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1400">
+                    <h2 class="section-title text-center text-lg-start">👨‍💻 About Me</h2>
+                    <p class="fs-5 text-muted">Hello! I'm <strong>Radhika Yadav</strong>, a passionate <strong>Computer Engineering Diploma Student</strong> at <strong>Shivaji Polytechnic, Sangola</strong>.</p>
+                    <p class="text-muted">I have a strong interest in <strong>Web Development, Programming, and Modern Technologies</strong>. I enjoy creating responsive websites and practical projects that help solve real-world problems.</p>
+                    <p class="text-muted">My technical skills include <strong>HTML, CSS, Bootstrap, JavaScript, C, C++, Java, Python, and Database Management</strong>.</p>
+                    <div class="mt-4">
+                        <span class="badge bg-primary p-3 me-2 mb-2">Web Development</span>
+                        <span class="badge bg-success p-3 me-2 mb-2">Java</span>
+                        <span class="badge bg-warning text-dark p-3 me-2 mb-2">Python</span>
+                        <span class="badge bg-danger p-3 me-2 mb-2">C++</span>
+                        <span class="badge bg-info text-dark p-3 mb-2">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">My Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card skill-card text-center p-4">
+                        <i class="fab fa-html5 fa-4x text-danger"></i>
+                        <h5 class="mt-3 fw-bold">HTML</h5>
+                        <div class="progress mt-3"><div class="progress-bar" style="width:95%;">95%</div></div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card skill-card text-center p-4">
+                        <i class="fab fa-css3-alt fa-4x text-primary"></i>
+                        <h5 class="mt-3 fw-bold">CSS</h5>
+                        <div class="progress mt-3"><div class="progress-bar" style="width:90%;">90%</div></div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card skill-card text-center p-4">
+                        <i class="fab fa-js fa-4x text-warning"></i>
+                        <h5 class="mt-3 fw-bold">JavaScript</h5>
+                        <div class="progress mt-3"><div class="progress-bar" style="width:80%;">80%</div></div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card skill-card text-center p-4">
+                        <i class="fab fa-python fa-4x text-info"></i>
+                        <h5 class="mt-3 fw-bold">Python</h5>
+                        <div class="progress mt-3"><div class="progress-bar" style="width:85%;">85%</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESUME ===== -->
+    <section id="resume" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Resume</h2>
+            <div class="resume-box text-center" data-aos="zoom-in">
+                <i class="fas fa-file-alt fa-4x mb-3"></i>
+                <h3>My Resume</h3>
+                <p>Download my resume to know more about my education, skills and projects.</p>
+                <a href="resume.html" target="_blank" class="btn btn-warning btn-lg m-2"><i class="fas fa-eye me-2"></i>View Resume</a>
+                <a href="resume.html" download class="btn btn-light btn-lg m-2"><i class="fas fa-download me-2"></i>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">🎓 My Education</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-5" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card education-card h-100 p-4 text-center">
+                        <i class="fas fa-school fa-3x text-primary mb-3"></i>
+                        <h4>SSC</h4>
+                        <p class="text-muted"><strong>Institute:</strong><br>Shri Sonarsiddh Vidyalay, Wayfal</p>
+                        <p class="text-muted"><strong>Year:</strong> 2024</p>
+                        <span class="badge bg-success fs-6 px-4 py-2">Percentage: 85%</span>
+                    </div>
+                </div>
+                <div class="col-md-5" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card education-card h-100 p-4 text-center">
+                        <i class="fas fa-laptop-code fa-3x text-warning mb-3"></i>
+                        <h4>Diploma in Computer Engineering</h4>
+                        <p class="text-muted"><strong>Institute:</strong><br>Shivaji Polytechnic, Sangola</p>
+                        <p class="text-muted"><strong>Status:</strong> Present</p>
+                        <span class="badge bg-primary fs-6 px-4 py-2">Percentage: 80%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section id="certificates" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Certificates</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="flip-up" data-aos-delay="100">
+                    <div class="card project-card h-100 shadow-sm">
+                        <img src="image/What5.jpeg" class="project-img" alt="C Programming" />
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">C Programming</h5>
+                            <p class="text-muted">Completed C Programming Certification.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-up" data-aos-delay="200">
+                    <div class="card project-card h-100 shadow-sm">
+                        <img src="image/4.jpeg" class="project-img" alt="Elocution" />
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">Elocution Event</h5>
+                            <p class="text-muted">Elocution Event Certification.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-up" data-aos-delay="300">
+                    <div class="card project-card h-100 shadow-sm">
+                        <img src="image/WhatsApp Image 2026-06-25 at 20.11.04.jpeg" class="project-img" alt="AI" />
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">Artificial Intelligence</h5>
+                            <p class="text-muted">Completed AI Certification.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GUIDE ===== -->
+    <section id="guide" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">👨‍🏫 Project Guide</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in" data-aos-duration="1200">
+                    <div class="card guide-card p-4">
+                        <div class="row align-items-center g-4">
+                            <div class="col-md-4 text-center">
+                                <img src="image/Ganesh.jpeg" alt="Guide" class="guide-img" />
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="fw-bold">Prof. Ganesh Sutar</h3>
+                                <p class="text-muted">Department of Computer Engineering</p>
+                                <p>Our respected project guide who provided continuous support, technical expertise, and valuable feedback throughout the development of this project.</p>
+                                <span class="badge bg-primary px-4 py-2 fs-6">Project Mentor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">🚀 My Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card project-card h-100 shadow-sm">
+                        <img src="image/logo1.png" class="project-img" alt="Portfolio" />
+                        <div class="card-body text-center">
+                            <h4 class="fw-bold">Portfolio Website</h4>
+                            <p class="text-muted">Responsive portfolio built with HTML, CSS & Bootstrap.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card project-card h-100 shadow-sm">
+                        <img src="image/calculator 1.PNG" class="project-img" alt="Calculator" />
+                        <div class="card-body text-center">
+                            <h4 class="fw-bold">Calculator App</h4>
+                            <p class="text-muted">Simple calculator using HTML, CSS & JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card project-card h-100 shadow-sm">
+                        <img src="image/reg form.PNG" class="project-img" alt="Registration" />
+                        <div class="card-body text-center">
+                            <h4 class="fw-bold">Student Registration Form</h4>
+                            <p class="text-muted">Registration form using HTML, CSS & JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Contact Me</h2>
+            <div class="row g-4">
+                <div class="col-md-5" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card contact-card h-100 p-4 shadow-sm">
+                        <h4 class="mb-4"><i class="fas fa-address-card text-primary me-2"></i>Get In Touch</h4>
+                        <p><i class="fas fa-user text-primary me-3"></i><strong>Radhika Yadav</strong></p>
+                        <p><i class="fas fa-envelope text-danger me-3"></i>yadavradhika1718@gmail.com</p>
+                        <p><i class="fas fa-phone text-success me-3"></i>+91 9370156833</p>
+                        <p><i class="fas fa-location-dot text-warning me-3"></i>Shivaji Polytechnic, Sangola</p>
+                        <hr />
+                        <h5>Follow Me</h5>
+                        <a href="#" class="btn btn-dark me-2 rounded-circle" style="width:48px;height:48px;"><i class="fab fa-github"></i></a>
+                        <a href="#" class="btn btn-primary rounded-circle" style="width:48px;height:48px;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-7" data-aos="fade-left" data-aos-delay="300">
+                    <div class="card contact-card p-4 shadow-sm">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Full Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your name" required id="contactName" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your email" required id="contactEmail" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Subject</label>
+                                <input type="text" class="form-control" placeholder="Enter subject" id="contactSubject" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Message</label>
+                                <textarea class="form-control" rows="4" placeholder="Write your message..." required id="contactMessage"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">CAPTCHA: <span id="captcha" class="badge bg-dark fs-5 px-4 py-2"></span></label>
+                                <input type="text" id="captchaInput" class="form-control" placeholder="Enter CAPTCHA" required />
+                            </div>
+                            <button type="submit" class="btn btn-submit w-100"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 Radhika Yadav | Crafted with <i class="fas fa-heart text-danger"></i></p>
+        </div>
+    </footer>
+
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <a href="https://wa.me/919370156833" target="_blank" class="floating-btn btn-whatsapp position-fixed bottom-0 start-0 m-4">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <a href="#home" class="floating-btn btn-top position-fixed bottom-0 end-0 m-4">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // AOS Init
+        AOS.init({
+            once: true,
+            duration: 1200,
+            easing: 'ease-out-cubic'
+        });
+
+        // CAPTCHA
+        let captchaCode;
+
+        function createCaptcha() {
+            captchaCode = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("captcha").innerText = captchaCode;
+        }
+        createCaptcha();
+
+        // Form Submit → WhatsApp
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let userInput = document.getElementById("captchaInput").value;
+            if (userInput != captchaCode) {
+                alert("❌ Wrong CAPTCHA! Please try again.");
+                createCaptcha();
+                document.getElementById("captchaInput").value = '';
+                return;
+            }
+
+            let name = document.getElementById("contactName").value;
+            let email = document.getElementById("contactEmail").value;
+            let subject = document.getElementById("contactSubject").value || "No Subject";
+            let message = document.getElementById("contactMessage").value;
+
+            let whatsappMsg =
+                `Hello Radhika,%0A%0A📌 *New Message from Portfolio*%0A%0A👤 Name: ${name}%0A📧 Email: ${email}%0A📝 Subject: ${subject}%0A💬 Message: ${message}`;
+
+            let url = "https://wa.me/919370156833?text=" + whatsappMsg;
+            window.open(url, "_blank");
+        });
+
+        //

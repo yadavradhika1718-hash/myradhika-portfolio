@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhika Yadav Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+/* SMOOTH SCROLL */
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    font-family:Segoe UI;
+}
+
+/* HERO */
+.hero{
+    background: linear-gradient(135deg,#0f172a,#1e3a8a,#0ea5e9);
+    color:white;
+    padding:120px 0;
+    text-align:center;
+}
+
+/* PROFILE */
+.profile-img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    transition:0.3s;
+}
+
+.profile-img:hover{
+    transform:scale(1.05);
+}
+
+/* SECTION TITLE */
+.section-title{
+    font-weight:700;
+    margin-bottom:30px;
+}
+
+/* CARD */
+.card{
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* IMAGE SIZE FIX */
+.project-img,
+.certificate-img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+/* BUTTON */
+.btn{
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<div class="container">
+<a class="navbar-brand">Radhika Portfolio</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<img src="image/radhu.jpeg" class="profile-img mb-3" data-aos="zoom-in">
+
+<h1 data-aos="fade-up">Radhika Yadav</h1>
+<p data-aos="fade-up">Diploma Computer Engineering Student</p>
+
+<a href="#projects" class="btn btn-warning mt-3" data-aos="zoom-in">
+View Projects
+</a>
+</section>
+
+<!-- ABOUT -->
+<section class="py-5">
+<div class="container">
+<h2 class="section-title text-center" data-aos="fade-down">About Me</h2>
+
+<p data-aos="fade-up">
+I am a Computer Engineering student interested in Web Development, Programming and Modern Technologies.
+</p>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="py-5 bg-light">
+<div class="container">
+<h2 class="section-title text-center" data-aos="fade-down">Skills</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3" data-aos="zoom-in">
+<div class="card text-center p-3">
+<i class="fab fa-html5 fa-3x text-danger"></i>
+<h5>HTML</h5>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+<div class="card text-center p-3">
+<i class="fab fa-css3 fa-3x text-primary"></i>
+<h5>CSS</h5>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+<div class="card text-center p-3">
+<i class="fab fa-js fa-3x text-warning"></i>
+<h5>JavaScript</h5>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+<div class="card text-center p-3">
+<i class="fab fa-python fa-3x text-info"></i>
+<h5>Python</h5>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section class="py-5">
+<div class="container">
+<h2 class="section-title text-center" data-aos="fade-down">Projects</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4" data-aos="fade-up">
+<div class="card">
+<img src="image/logo1.png" class="project-img">
+<div class="card-body text-center">
+<h5>Portfolio Website</h5>
+</div>
+</div>
+</div>
+
+<div class="col-md-4" data-aos="fade-up">
+<div class="card">
+<img src="image/calculator 1.PNG" class="project-img">
+<div class="card-body text-center">
+<h5>Calculator App</h5>
+</div>
+</div>
+</div>
+
+<div class="col-md-4" data-aos="fade-up">
+<div class="card">
+<img src="image/reg form.PNG" class="project-img">
+<div class="card-body text-center">
+<h5>Registration Form</h5>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="py-5 bg-light">
+<div class="container">
+<h2 class="section-title text-center" data-aos="fade-down">Certificates</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4" data-aos="zoom-in">
+<div class="card">
+<img src="image/What5.jpeg" class="certificate-img">
+</div>
+</div>
+
+<div class="col-md-4" data-aos="zoom-in">
+<div class="card">
+<img src="image/4.jpeg" class="certificate-img">
+</div>
+</div>
+
+<div class="col-md-4" data-aos="zoom-in">
+<div class="card">
+<img src="image/WhatsApp Image 2026-06-25 at 20.11.04.jpeg" class="certificate-img">
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="py-5">
+<div class="container">
+<h2 class="section-title text-center" data-aos="fade-down">Contact</h2>
+
+<div class="row">
+
+<div class="col-md-5" data-aos="fade-right">
+<p><b>Email:</b> yadavradhika1718@gmail.com</p>
+<p><b>Phone:</b> 9370156833</p>
+</div>
+
+<div class="col-md-7" data-aos="fade-left">
+<form class="card p-3">
+<input type="text" class="form-control mb-2" placeholder="Name">
+<input type="email" class="form-control mb-2" placeholder="Email">
+<textarea class="form-control mb-2" rows="4" placeholder="Message"></textarea>
+<button class="btn btn-primary">Send</button>
+</form>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center p-3 bg-dark text-white">
+© 2026 Radhika Yadav Portfolio
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1000,
+    once:true
+});
+</script>
+
+</body>
+</html>
